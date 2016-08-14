@@ -20,5 +20,10 @@ module.exports = {
         devAssets + '/fonts/*'
       ]
     }
+  },
+  delete: {
+    src: [devAssets]
   }
 };
+
+// export default
