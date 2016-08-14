@@ -6,9 +6,7 @@ const srcAssets  = 'app/_assets';
 const devAssets  = 'build/assets'
 const prodAssets = 'build/production/assets'
 
-let confignew;
-
-confignew = Object.assign({
+module.exports = {
   browsersync: {
     development: {
       server: {
@@ -25,11 +23,7 @@ confignew = Object.assign({
   },
   delete: {
     src: [devAssets]
-  },
-  styles: {
-    src: srcAssets + '/styles/*.css',
-    dest: devAssets + '/css'
   }
-});
+};
 
-export default confignew;
+// export default
