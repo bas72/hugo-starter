@@ -30,6 +30,13 @@ confignew = Object.assign({
     src: srcAssets + '/styles/*.css',
     dest: devAssets + '/css'
   }
+  hugo: {
+  development: {
+    src:    src,
+    dest:   dev,
+    config: '_config.yml'
+  }
+}
 });
 
 export default confignew;

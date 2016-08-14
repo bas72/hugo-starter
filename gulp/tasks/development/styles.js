@@ -1,7 +1,7 @@
-import gulp from 'gulp';
+import gulp    from 'gulp';
 import postcss from 'gulp-postcss';
-import nano from 'cssnano';
-import config from '../../config';
+import nano    from 'cssnano';
+import config  from '../../config';
 
 const processors = [
   nano
