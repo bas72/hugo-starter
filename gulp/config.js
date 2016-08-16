@@ -6,9 +6,9 @@ const srcAssets  = 'app/_assets';
 const devAssets  = 'build/assets'
 const prodAssets = 'build/production/assets'
 
-let confignew;
+let config;
 
-confignew = Object.assign({
+config = Object.assign({
   browsersync: {
     development: {
       server: {
@@ -28,15 +28,49 @@ confignew = Object.assign({
   },
   styles: {
     src: srcAssets + '/styles/*.css',
-    dest: devAssets + '/css'
-  }
+    dest: devAssets + '/css',
+    options: {
+      autoprefixer: {
+        browsers: [
+          'last 2 versions',
+          'ie9'
+        ],
+      },
+    },
+  },
+  lintStyles: {
+    src: [
+      srcAssets + '/styles/**/*.css',
+      '!' + srcAssets + '/styles/partials/_syntax-highlighting.css',
+      '!' + srcAssets + '/styles/partials/_sprites.css',
+      '!' + srcAssets + '/styles/partials/fontcustom.css'
+    ],
+    options: {
+      stylelint: {
+        'rules': {
+          'string-quotes': [2, 'double'],
+          'color-hex-case': [2, 'lower'],
+          'value-no-vendor-prefix': 2,
+          'declaration-no-important': 0,
+          'rule-non-nested-empty-line-before': [2, 'always', {
+            ignore: ['after-comment']
+          }]
+        }
+      },
+      reporter: {
+        clearMessages: true
+      }
+    }
+  },
+
+// not yet implemented hugo config refs (below is currently not useful)
   hugo: {
-  development: {
-    src:    src,
-    dest:   dev,
-    config: '_config.yml'
-  }
+    dev: {
+      src: src + '/hugo',
+      dest: dev + '/hugo',
+      config: 'config.yaml'
+    }
 }
 });
 
-export default confignew;
+export default config;
