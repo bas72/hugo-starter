@@ -1,3 +1,10 @@
+app
+build
+
+##############################
+User settings ^^^
+##############################
+
 ### Node ###
 # Logs
 logs
@@ -69,8 +76,6 @@ Temporary Items
 
 ### Hugo ###
 hugo.exe
-dist
-.tmp
 
 ### Sass ###
 .sass-cache/
