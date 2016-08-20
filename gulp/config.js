@@ -70,6 +70,10 @@ config = Object.assign({
       dest: dev + '/hugo',
       config: 'config.yaml'
     }
+},
+images: {
+  src:  srcAssets + '/images/**/*',
+  dest: devAssets + '/images'
 }
 });
 
