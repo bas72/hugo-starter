@@ -5,9 +5,9 @@ import { clean } from './dev/clean';
 import { hugo_dev, hugo_prod, hugo_reload } from './dev/hugo';
 import { images } from './dev/images'
 import { lint_styles } from './dev/lint_styles';
-// import { serve }  from './development/serve';
+import { serve }  from './dev/serve';
 import { styles } from './dev/styles';
-// import { watch }  from './development/watch';
+import { watch }  from './dev/watch';
 
 // main build
 gulp.task('build', gulp.series(
@@ -20,4 +20,4 @@ gulp.task('build', gulp.series(
 
 // gulp.task('build', gulp.series(clean, styles));
 
-gulp.task('default', gulp.series('build'));
+gulp.task('default', gulp.series(watch, serve, 'build'));

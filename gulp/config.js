@@ -67,14 +67,34 @@ config = Object.assign({
   hugo: {
     dev: {
       src: src + '/hugo',
-      dest: dev + '/hugo',
+      dest: dev,
       config: 'config.yaml'
     }
-},
-images: {
-  src:  srcAssets + '/images/**/*',
-  dest: devAssets + '/images'
-}
+  },
+  images: {
+    src:  srcAssets + '/images/**/*',
+    dest: devAssets + '/images'
+  },
+  watch: {
+    hugo: [
+      '_config.yml',
+      '_config.build.yml',
+      'stopwords.txt',
+      src + 'hugo/data/**/*.{json,yml,csv}',
+      src + '/_includes/**/*.{html,xml}',
+      src + 'hugo/layouts/*.html',
+      src + '/_locales/*.yml',
+      src + '/content/**/*.{markdown,md}',
+      src + '/**/*.{html,markdown,md,yml,json,txt,xml}',
+      src + '/*'
+    ],
+    styles:  srcAssets + '/styles/**/*.css',
+    scripts: srcAssets + '/scripts/**/*.js',
+    images:  srcAssets + '/images/**/*',
+    sprites: srcAssets + '/images/**/*.png',
+    svg:     'vectors/*.svg'
+  }
 });
+
 
 export default config;

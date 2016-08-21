@@ -42,9 +42,10 @@ export function hugo_prod(done) {
 // }
 //
 // // reload function needs to be included into above task as now way to happen after in gulp.parallel
-// export function hugo_reload() {
-//   browsersync.reload();
-// }
+export function hugo_reload(done) {
+  browsersync.reload();
+  done();
+}
 
 // return cp.spawn('bundle', ['exec', 'jekyll', 'build', '-q', '--source=' + config.src, '--destination=' + config.dest, '--config=' + config.config], { stdio: 'inherit' })
 //   .on('close', done);
