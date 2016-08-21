@@ -4,7 +4,7 @@ import stylelint from 'stylelint';
 import reporter from 'postcss-reporter';
 import config from '../../config';
 
-export function lint_styles() {
+export function lintStyles() {
   return gulp.src(config.lintStyles.src)
   .pipe(postcss([
     stylelint(config.lintStyles.options.stylelint),

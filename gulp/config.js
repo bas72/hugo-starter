@@ -93,6 +93,9 @@ config = Object.assign({
     images:  srcAssets + '/images/**/*',
     sprites: srcAssets + '/images/**/*.png',
     svg:     'vectors/*.svg'
+  },
+  jshint: {
+  src: srcAssets + '/javascripts/*.js'
   }
 });
 
