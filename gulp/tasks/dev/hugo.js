@@ -6,8 +6,16 @@ import path        from 'path';
 import config      from '../../config';
 
 function hugo(drafts) {
-    const src = path.join(process.cwd(), config.hugo.dev.src);
-    const dst = path.join(process.cwd(), config.hugo.dev.dest);
+    let src;
+    let dst;
+
+    if (drafts) {
+      src = path.join(process.cwd(), config.hugo.dev.src);
+      dst = path.join(process.cwd(), config.hugo.dev.dest);
+    } else {
+      src = path.join(process.cwd(), config.hugo.prod.src);
+      dst = path.join(process.cwd(), config.hugo.prod.dest);
+    }
 
     gutil.log('src: ' + src + ' dst: ' + dst);
 

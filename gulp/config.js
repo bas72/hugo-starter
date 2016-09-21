@@ -75,6 +75,11 @@ config = Object.assign({
       src: src + '/hugo',
       dest: dev,
       config: 'config.yaml'
+    },
+    prod: {
+      src: src + '/hugo',
+      dest: prod,
+      config: 'config.yaml'
     }
   },
   images: {
