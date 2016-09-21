@@ -1,16 +1,16 @@
 const src        = 'app';
 const build      = 'build';
-const dev        = 'build/development';
-const prod       = 'build/production';
+const dev        = 'build/dev';
+const prod       = 'build/prod';
 const srcAssets  = 'app/_assets';
-const devAssets  = 'build/assets'
-const prodAssets = 'build/production/assets'
+const devAssets  = 'build/assets';
+const prodAssets = 'build/prod/assets';
 
 let config;
 
 config = Object.assign({
   browsersync: {
-    development: {
+    dev: {
       server: {
         baseDir: [dev, build, src]
       },
@@ -21,6 +21,12 @@ config = Object.assign({
         devAssets + '/images/**',
         devAssets + '/fonts/*'
       ]
+    },
+    prod: {
+      server: {
+        baseDir: [prod]
+      },
+      port: 9998
     }
   },
   delete: {
@@ -95,7 +101,21 @@ config = Object.assign({
     svg:     'vectors/*.svg'
   },
   jshint: {
-  src: srcAssets + '/javascripts/*.js'
+    src: srcAssets + '/javascripts/*.js'
+  },
+  optimise: {
+    css: {
+      src: devAssets + '/css/*.css',
+      dest: prodAssets + '/css/',
+      options: {
+        keepSpecialComments: 0
+      }
+    },
+    js: {
+      src: devAssets + '/js/*.js',
+      dest: prodAssets + '/js/',
+      options: {}
+    }
   }
 });
 
