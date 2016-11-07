@@ -2,7 +2,7 @@ const src        = 'app';
 const build      = 'build';
 const dev        = 'build/dev';
 const prod       = 'build/prod';
-const srcAssets  = 'app/_assets';
+const srcAssets  = 'app/assets';
 const devAssets  = 'build/assets';
 const prodAssets = 'build/prod/assets';
 
@@ -30,7 +30,8 @@ config = Object.assign({
     }
   },
   delete: {
-    src: [devAssets]
+    dev: [devAssets],
+    prod: [prodAssets]
   },
   styles: {
     src: srcAssets + '/styles/*.css',
