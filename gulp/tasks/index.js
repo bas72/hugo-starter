@@ -7,7 +7,9 @@ import { images } from './dev/images';
 import { lintScripts} from './dev/lintScripts'
 import { lintStyles } from './dev/lintStyles';
 import { optimise_css, optimise_js } from './dev/optimise';
+import { revision, rev_collect } from './dev/revision';
 import { serve, serve_prod }  from './dev/serve';
+import { scripts } from './dev/scripts';
 import { styles } from './dev/styles';
 import { watch }  from './dev/watch';
 
@@ -15,15 +17,16 @@ import { watch }  from './dev/watch';
 gulp.task('build', gulp.series(
   clean,
   gulp.parallel(hugo_dev, styles, images),
-  gulp.parallel(lintStyles, lintScripts)
+  gulp.parallel(lintStyles, lintScripts),
   // base64
 ));
 
 gulp.task('build_prod', gulp.series(
   clean,
   gulp.parallel(hugo_prod, styles, images),
-  gulp.parallel(optimise_css, optimise_js)
-))
+  gulp.parallel(optimise_css, optimise_js),
+  revision, rev_collect
+));
 
 // gulp.task('build:production', function(callback) {
 //   runSequence('delete', 'jekyll:production',

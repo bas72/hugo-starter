@@ -121,6 +121,31 @@ config = Object.assign({
       dest: prodAssets + '/js/',
       options: {}
     }
+  },
+  revision: {
+    src: {
+      assets: [
+        prodAssets + '/css/*.css',
+        prodAssets + '/js/*.js',
+        prodAssets + '/images/**/*'
+      ],
+      base: prod
+    },
+    dest: {
+      assets: prod,
+      manifest: {
+        name: 'manifest.json',
+        path: prodAssets
+      }
+    }
+  },
+  collect: {
+    src: [
+      prodAssets + '/manifest.json',
+      prod + '/**/*.{html,xml,txt,json,css,js}',
+      '!' + prod + '/feed.xml'
+    ],
+    dest: prod
   }
 });
 
